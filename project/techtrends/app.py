@@ -3,11 +3,15 @@ import sqlite3
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 
+db_connection_count=0;
+
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
 def get_db_connection():
     connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
+    global db_connection_count;
+    db_connection_count += 1
     return connection
 
 # Function to get a post using its ID
@@ -64,7 +68,44 @@ def create():
             return redirect(url_for('index'))
 
     return render_template('create.html')
+#______________________________________________________________________________________________________________________
+#Healthcheck endpoint  
+@app.route('/healthz')
+def health_check():
+    response = app.response_class(
+        response = json.dumps({"result": "Ok - Healthy"}),
+        status = 200,
+        mimetype= 'application/json'
+    )
+    app.logger.info('Status request {/healthz} successfull');
+    return response;
 
+#______________________________________________________________________________________________________________________
+#Function to get posts count
+def get_posts_count():
+    connection = get_db_connection()
+    posts_count = connection.execute('SELECT COUNT(*) FROM posts').fetchone()[0]
+    connection.close()
+    return posts_count;
+
+
+
+@app.route("/metrics")
+def metrics():
+    posts = get_posts_count()
+    response = app.response_class(
+        response = json.dumps({
+            "status": "success",
+            "code":0,
+            "data":{"db_connection_count": db_connection_count, "post_count": posts}
+        }),
+        status = 200,
+        mimetype= 'application/json'
+    )
+    app.logger.info('Metrics request successfull')
+    return response;
+
+#______________________________________________________________________________________________________________________
 # start the application on port 3111
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port='3111')
