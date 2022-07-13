@@ -6,6 +6,9 @@ docker build . -t techtrends
 # TODO: insert the docker run command
 docker run -d --rm --name techtrends-app -p 7111:3111 -v /home/ksaleh/Documents/udacity/nd064_course_1/project/techtrends/:/app  techtrends 
 
+docker run -d  --name tt -p 7111:3111 -v /home/ksaleh/Documents/udacity/nd064_course_1/project/techtrends/:/app  techtrends 
+
+docker rm -f tt
 ## Docker commands used to get the application logs
 # TODO: insert the docker logs command
 docker logs techtrends-app

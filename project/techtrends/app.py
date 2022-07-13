@@ -1,4 +1,6 @@
 import sqlite3
+import logging
+import sys
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -40,13 +42,17 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      app.logger.info(f'A non-existing article is accessed');  
       return render_template('404.html'), 404
     else:
+      title = post['title']
+      app.logger.info(f'Article "{title}" retrieved!');
       return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
+    app.logger.info(f'The "About Us" page is retrieved');
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -64,7 +70,8 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-
+            app.logger.info(f'A new article {title} is created');
+            
             return redirect(url_for('index'))
 
     return render_template('create.html')
@@ -87,9 +94,7 @@ def get_posts_count():
     posts_count = connection.execute('SELECT COUNT(*) FROM posts').fetchone()[0]
     connection.close()
     return posts_count;
-
-
-
+#______________________________________________________________________________________________________________________
 @app.route("/metrics")
 def metrics():
     posts = get_posts_count()
@@ -106,6 +111,17 @@ def metrics():
     return response;
 
 #______________________________________________________________________________________________________________________
+def setup_logger():
+    root = logging.getLogger()
+    root.setLevel(logging.DEBUG)
+    handler = logging.StreamHandler(sys.stdout)
+    handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(levelname)s - %(name)s - %(asctime)s -  %(message)s')
+    handler.setFormatter(formatter)
+    root.addHandler(handler)
+#______________________________________________________________________________________________________________________
+
 # start the application on port 3111
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', port='3111')
+    setup_logger();
+    app.run(host='0.0.0.0', port='3111')
