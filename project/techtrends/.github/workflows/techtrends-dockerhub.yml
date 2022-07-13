@@ -1,0 +1,38 @@
+#Github workflow to build and package techtrends project to docker hub
+name: "TechTrends - Package with Docker"
+
+#Set th event where the jobs will be triggered when it happens
+on:
+  push:
+    branches: [main]
+
+
+#start the followings jobs    
+jobs:
+  build:
+    runs-on:  ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install python
+        uses: actions/setup-python@v2
+
+      - name: Install pip package
+        run:  python -m pip install --upgrade pip   
+
+      - name: Install dependencies
+        run:  if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      -needs: build
+       name: build & package docker image 
+        uses: mr-smithers-excellent/docker-build-push@v4  
+        with:
+          image: ksaleh/python
+          registry: docker.io
+          username: ${{secrets.DOCKER_USERNAME}}
+          password: ${{secrets.DOCKER_PASSWORD}}
+          tag: techtrends:latest
