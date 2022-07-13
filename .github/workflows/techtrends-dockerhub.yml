@@ -30,8 +30,7 @@ jobs:
       - name: build & package docker image 
         uses: mr-smithers-excellent/docker-build-push@v4  
         with:
-          context: ./project/techtrends
-          #dockerfile: ../../project/techtrends/Dockerfile
+          directory: ./project/techtrends/
           image: ksaleh/python
           registry: docker.io
           username: ${{secrets.DOCKER_USERNAME}}
