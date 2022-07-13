@@ -31,5 +31,5 @@ jobs:
           image: ksaleh/techtrends
           registry: docker.io
           username: ${{secrets.DOCKER_USERNAME}}
-          password: ${{secrets.DOCKER_PASSWORD}}
+          password: ${{secrets.DOCKER_ACCESS_TOKEN}}
           tag: latest
