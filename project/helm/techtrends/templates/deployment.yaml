@@ -4,8 +4,8 @@ metadata:
   labels:
     tag: latest
     app: techtrends
-  name: {{.Values.namespace.name}}
-  namespace: sandbox
+  name: techtrends
+  namespace: {{.Values.namespace.name}}
 spec:
   replicas: {{.Values.replicaCount}}
   selector:
@@ -24,7 +24,7 @@ spec:
          - containerPort: {{.Values.containerPort}}
         resources:
           requests:
-            memory: {{.Values.resources.requests.memory}}
+            memory: {{ .Values.resources.requests.memory }}
             cpu: {{.Values.resources.requests.cpu}}
           limits:
             memory: {{.Values.resources.limits.memory}}
