@@ -5,7 +5,7 @@ metadata:
     app: techtrends
     tag: latest
   name: techtrends-svc
-  namespace: sandbox
+  namespace: {{ .Values.namespace.name }} 
 spec:
   ports:
   - port: {{.Values.service.port}}  #4111 external port
