@@ -1,6 +1,6 @@
 FROM python:3.8
 LABEL maintainer="Khaled Saleh"
-COPY . ./app
+COPY ./techtrends ./app
 WORKDIR /app
 
 #RUN python -m pip install --upgrade pip
