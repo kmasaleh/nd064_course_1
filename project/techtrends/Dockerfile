@@ -14,6 +14,6 @@ EXPOSE $PORT
 
 ##
 #RUN pip freeze > init_db.py
-RUN python ./init_db.py
+RUN python init_db.py
 CMD ["python", "app.py"]
 
