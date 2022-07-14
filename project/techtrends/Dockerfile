@@ -3,7 +3,7 @@ LABEL maintainer="Khaled Saleh"
 COPY . ./app
 WORKDIR /app
 
-RUN python -m pip install --upgrade pip
+#RUN python -m pip install --upgrade pip
 ##
 RUN pip freeze > requirements.txt 
 RUN pip install -r requirements.txt
@@ -14,6 +14,6 @@ EXPOSE $PORT
 
 ##
 #RUN pip freeze > init_db.py
-#RUN python ./init_db.py
+RUN python ./init_db.py
 CMD ["python", "app.py"]
 
