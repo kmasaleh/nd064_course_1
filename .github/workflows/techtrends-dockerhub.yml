@@ -13,10 +13,10 @@ jobs:
     runs-on:  ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          repository: kmasaleh/nd064_course_1
-          path: project/techtrends/
+          repository: kmasaleh/nd064_course_1/project/techtrends
+          path: techtrends
 
 
       #- name: Install python
@@ -60,7 +60,7 @@ jobs:
         with:
           context: .
           #file: ./project/techtrends/Dockerfile
-          #file: ./project/techtrends/Dockerfile
+          file: ./Dockerfile
           platforms: linux/amd64
           push: true
           tags: ksaleh/techtrends:latest
