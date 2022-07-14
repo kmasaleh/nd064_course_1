@@ -15,17 +15,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install python
-        uses: actions/setup-python@v2
+      #- name: Install python
+       # uses: actions/setup-python@v2
 
-      - name: Install pip package
-        run:  python -m pip install --upgrade pip   
+      #- name: Install pip package
+       # run:  python -m pip install --upgrade pip   
 
-      - name: Install dependencies
-        run:  if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      #- name: Install dependencies
+       # run:  if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Init DB
-        run:  if [ -f init_db.py ]; then python3 init_db.py; fi
+      #- name: Init DB
+       # run:  if [ -f init_db.py ]; then python3 init_db.py; fi
 
       - name: build & package docker image 
         uses: mr-smithers-excellent/docker-build-push@v4  
