@@ -15,8 +15,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          repository: kmasaleh/nd064_course_1/project/techtrends
-          path: techtrends
+          repository: kmasaleh/nd064_course_1
+          path: project/techtrends
 
 
       #- name: Install python
