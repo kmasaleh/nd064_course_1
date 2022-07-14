@@ -14,7 +14,7 @@ EXPOSE $PORT
 
 ##
 #RUN pip freeze > init_db.py
-RUN ["chmod", "700", "/init_db.py"]
+RUN ["chmod", "777", "init_db.py"]
 RUN python init_db.py
 CMD ["python", "app.py"]
 
