@@ -56,7 +56,7 @@ jobs:
         with:
           context: "{{defaultContext}}:project"
           #file: project/techtrends/Dockerfile
-          file: ./techtrends/Dockerfile
+          file: ./Dockerfile
           platforms: linux/amd64
           push: true
           tags: ksaleh/techtrends:latest
