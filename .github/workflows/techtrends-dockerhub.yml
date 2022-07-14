@@ -58,5 +58,4 @@ jobs:
           file: ./project/techtrends/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: {{ ksaleh }}/techtrends:latest
-
+          tags: ksaleh/techtrends:latest
