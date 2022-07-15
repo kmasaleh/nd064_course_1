@@ -19,7 +19,7 @@ spec:
       containers:
       - name: techtrends
         image: ksaleh/techtrends:latest
-          pullPolicy: Always
+          imagePullPolicy: Always
         ports:
          - containerPort: 3111
         resources:
