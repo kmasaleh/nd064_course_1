@@ -11,11 +11,12 @@ metadata:
 spec:
   ports:
   - port: {{.Values.service.port}}  #4111 external port
-  -
+    targetPort: {{.Values.service.targetPort}} #3111  internal port
+    protocol: {{.Values.service.protocol}} #TCP
+
+  
   #  name: http
   #  port: {{.Values.service.targetPort}}
-    protocol: {{.Values.service.protocol}} #TCP
-    targetPort: {{.Values.service.targetPort}} #3111  internal port
   #  nodePort: 30020
 
 
