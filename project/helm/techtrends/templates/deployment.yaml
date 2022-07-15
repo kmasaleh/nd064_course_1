@@ -5,9 +5,9 @@ metadata:
     tag: latest
     app: techtrends
   name: techtrends
-  namespace: {{.Values.namespace.name}}
+  namespace: staging
 spec:
-  replicas: {{.Values.replicaCount}}
+  replicas: 3
   selector:
     matchLabels:
       app: techtrends
@@ -19,22 +19,22 @@ spec:
       containers:
       - name: techtrends
         image: ksaleh/techtrends:latest
-          pullPolicy: {{.Values.image.pullPolicy}}
+          pullPolicy: Always
         ports:
-         - containerPort: {{.Values.containerPort}}
+         - containerPort: 3111
         resources:
           requests:
-            memory: {{ .Values.resources.requests.memory }}
-            cpu: {{.Values.resources.requests.cpu}}
+            memory: 64Mi
+            cpu: 256m
           limits:
-            memory: {{.Values.resources.limits.memory}}
-            cpu: {{.Values.resources.limits.cpu}}
+            memory: 128Mi
+            cpu: 500m
         livenessProbe:
           httpGet:
-            path: {{.Values.livenessProbe.path}}
-            port: {{.Values.containerPort}}
+            path: /healthz
+            port: 3111
         readinessProbe:
           httpGet:
-            path: {{.Values.readinessProbe.path}}
-            port: {{.Values.containerPort}}
+            path: /healthz
+            port: 3111
 
