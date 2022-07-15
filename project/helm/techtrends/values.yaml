@@ -18,16 +18,16 @@ resources:
     memory: 128Mi
     cpu: 500m
   
-  containerPort: 3111
+containerPort: 3111
   
-  livenessProbe:
-      path: /healthz
+livenessProbe:
+  path: /healthz
 
-  readinessProbe:
-      path: /healthz
+readinessProbe:
+  path: /healthz
   
-  service:
-    port: 4111
-    targetPort: 3111
-    protocol: TCP
-    type: ClusterIP
+service:
+  port: 4111
+  targetPort: 3111
+  protocol: TCP
+  type: ClusterIP

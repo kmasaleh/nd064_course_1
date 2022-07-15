@@ -10,7 +10,6 @@ resources:
   limits:
     memory: 128Mi
     cpu: 500m
-  
-  
-  service:
-    port: 5111
+    
+service:
+  port: 5111

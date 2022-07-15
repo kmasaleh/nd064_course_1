@@ -12,7 +12,7 @@ resources:
     cpu: 500m
   
   image:
-   pullPolicy : Always
+   imagePullPolicy : Always
 
-  service:
-    port: 7111
+service:
+  port: 7111
