@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-  
+
   labels:
     app: techtrends
     tag: latest
@@ -13,16 +13,11 @@ spec:
   #- port: {{.Values.service.port}}  #4111 external port
   -
     name: http
-    port: 80
+    port: {{.Values.service.protocol}}
     protocol: {{.Values.service.protocol}} #TCP
     targetPort: {{.Values.service.targetPort}} #3111  internal port
     nodePort: 30020
 
-  - name: https
-    port: 443
-    protocol: TCP
-    targetPort: {{.Values.service.targetPort}} #3111  internal port
-    nodePort: 30021
 
   selector:
     app: techtrends
