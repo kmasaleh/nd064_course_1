@@ -13,3 +13,33 @@ docker logs techtrends
 
 ## Logs from the container running the TechTrends application
 # TODO: paste logs from the Docker container 
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+WARNING - werkzeug - 2022-07-15 11:57:34,951 -   * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO - werkzeug - 2022-07-15 11:57:34,951 -   * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+INFO - app - 2022-07-15 11:57:39,412 -  Article "Kubernetes v1.20 Release Notes" retrieved!
+INFO - werkzeug - 2022-07-15 11:57:39,423 -  172.17.0.1 - - [15/Jul/2022 11:57:39] "GET /3 HTTP/1.1" 200 -
+INFO - werkzeug - 2022-07-15 11:57:39,456 -  172.17.0.1 - - [15/Jul/2022 11:57:39] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO - werkzeug - 2022-07-15 11:57:42,334 -  172.17.0.1 - - [15/Jul/2022 11:57:42] "GET / HTTP/1.1" 200 -
+INFO - werkzeug - 2022-07-15 11:57:42,361 -  172.17.0.1 - - [15/Jul/2022 11:57:42] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO - app - 2022-07-15 11:57:43,942 -  The "About Us" page is retrieved
+INFO - werkzeug - 2022-07-15 11:57:43,948 -  172.17.0.1 - - [15/Jul/2022 11:57:43] "GET /about HTTP/1.1" 200 -
+INFO - werkzeug - 2022-07-15 11:57:44,026 -  172.17.0.1 - - [15/Jul/2022 11:57:44] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO - werkzeug - 2022-07-15 11:57:45,415 -  172.17.0.1 - - [15/Jul/2022 11:57:45] "GET /create HTTP/1.1" 200 -
+INFO - werkzeug - 2022-07-15 11:57:45,456 -  172.17.0.1 - - [15/Jul/2022 11:57:45] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO - app - 2022-07-15 11:57:49,009 -  A new article ergrew is created
+INFO - werkzeug - 2022-07-15 11:57:49,010 -  172.17.0.1 - - [15/Jul/2022 11:57:49] "POST /create HTTP/1.1" 302 -
+INFO - werkzeug - 2022-07-15 11:57:49,022 -  172.17.0.1 - - [15/Jul/2022 11:57:49] "GET / HTTP/1.1" 200 -
+INFO - werkzeug - 2022-07-15 11:57:49,112 -  172.17.0.1 - - [15/Jul/2022 11:57:49] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO - app - 2022-07-15 11:57:51,294 -  Article "ergrew" retrieved!
+INFO - werkzeug - 2022-07-15 11:57:51,295 -  172.17.0.1 - - [15/Jul/2022 11:57:51] "GET /7 HTTP/1.1" 200 -
+INFO - werkzeug - 2022-07-15 11:57:51,355 -  172.17.0.1 - - [15/Jul/2022 11:57:51] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO - app - 2022-07-15 11:57:53,563 -  The "About Us" page is retrieved
+INFO - werkzeug - 2022-07-15 11:57:53,565 -  172.17.0.1 - - [15/Jul/2022 11:57:53] "GET /about HTTP/1.1" 200 -
+INFO - werkzeug - 2022-07-15 11:57:53,608 -  172.17.0.1 - - [15/Jul/2022 11:57:53] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO - werkzeug - 2022-07-15 11:57:54,879 -  172.17.0.1 - - [15/Jul/2022 11:57:54] "GET / HTTP/1.1" 200 -
+INFO - werkzeug - 2022-07-15 11:57:54,939 -  172.17.0.1 - - [15/Jul/2022 11:57:54] "GET /static/css/main.css HTTP/1.1" 304 -
