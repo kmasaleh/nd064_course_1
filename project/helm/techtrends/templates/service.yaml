@@ -10,13 +10,13 @@ metadata:
   namespace: {{ .Values.namespace.name }} 
 spec:
   ports:
-  #- port: {{.Values.service.port}}  #4111 external port
+  - port: {{.Values.service.port}}  #4111 external port
   -
-    name: http
-    port: {{.Values.service.targetPort}}
+  #  name: http
+  #  port: {{.Values.service.targetPort}}
     protocol: {{.Values.service.protocol}} #TCP
     targetPort: {{.Values.service.targetPort}} #3111  internal port
-    nodePort: 30020
+  #  nodePort: 30020
 
 
   selector:
