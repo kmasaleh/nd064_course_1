@@ -19,7 +19,7 @@ spec:
       containers:
       - name: techtrends
         image: ksaleh/techtrends:latest
-          pullPolicy: {{.Values.image.pullPolicy}}
+          imagePullPolicy: {{.Values.image.pullPolicy}}
         ports:
          - containerPort: {{.Values.containerPort}}
         resources:
