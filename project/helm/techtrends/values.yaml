@@ -30,5 +30,5 @@ service:
   port: 4111
   targetPort: 3111
   protocol: TCP
-  type: ClusterIP
-  #type: NodePort
+  #type: ClusterIP
+  type: NodePort

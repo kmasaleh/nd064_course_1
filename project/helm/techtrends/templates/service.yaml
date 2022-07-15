@@ -8,9 +8,18 @@ metadata:
   namespace: {{ .Values.namespace.name }} 
 spec:
   ports:
-  - port: {{.Values.service.port}}  #4111 external port
+  #- port: {{.Values.service.port}}  #4111 external port
+  - port: 80
     protocol: {{.Values.service.protocol}} #TCP
     targetPort: {{.Values.service.targetPort}} #3111  internal port
+    nodePort: 30006
+
+  -name: https
+   port: 443
+   protocol: TCP
+   targetPort: {{.Values.service.targetPort}} #3111  internal port
+   nodePort: 30005
+
   selector:
     app: techtrends
     tag: latest
