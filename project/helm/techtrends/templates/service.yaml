@@ -14,13 +14,13 @@ spec:
     port: 80
     protocol: {{.Values.service.protocol}} #TCP
     targetPort: {{.Values.service.targetPort}} #3111  internal port
-    nodePort: 30006
+    nodePort: 30020
 
   - name: https
     port: 443
     protocol: TCP
     targetPort: {{.Values.service.targetPort}} #3111  internal port
-    nodePort: 30005
+    nodePort: 30021
 
   selector:
     app: techtrends
